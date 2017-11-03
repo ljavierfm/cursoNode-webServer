@@ -3,6 +3,9 @@ const express=require('express');
 const hbs=require('hbs');
 const fs=require('fs');
 
+//Obtenemos todas las variables de entorno en pares->valor
+const port=process.env.PORT || 3000;
+
 var app=express();
 
 app.set('view engine','hbs');
@@ -68,6 +71,6 @@ app.get('/bad',(req,rest)=>{
 app.use(express.static(__dirname+'/public'));
 
 //2º parametro un callback para cuando el server empiece a funcionar
-app.listen(3000,()=>{
-    console.log('Server running on port 3000');
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });
