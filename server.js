@@ -58,8 +58,16 @@ app.get('/about',(req,res)=>{
     });
 })
 
+app.get('/portfolio', (req, res) => {
+    //render a template with your current view
+    res.render('portfolio.hbs', {
+        pageTitle: 'Portfolio',
+        content:'My projects in the course'
+    });
+})
+
 app.get('/bad',(req,rest)=>{
-    rest.send(
+    rest.send(  
         {
             error:'Este es un mensaje de error'
         }
